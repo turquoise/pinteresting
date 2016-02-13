@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users
+  devise_scope :user do get '/users/sign_out' => 'devise/sessions#destroy' end
+  root 'pages#home'
 
   # get 'pages/home'
   get "about" => "pages#about"
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'pages#home'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
